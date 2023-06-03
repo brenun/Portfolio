@@ -8,9 +8,13 @@
 
 :root {
   --color-white: #fff;
-  --color-pink: #d12f7a;
+  --color-pink: #f864a9;
   --color-black: #000000;
-
+  --color-blue: #5309f5;
+  --color-purple: #5f01ac;
+  --color-violet: #ea04ff;
+  --color-ciano: #3268a9;
+  --color-guava: #c7216e;
 }
 
 html {
@@ -23,13 +27,13 @@ body {
 }
 
 #person{
-  height: 100vh;
+  max-height: 100vh;
   width: 100%;
 
   display: flex;
   align-items: center;
 
-  background: red;
+  background: var(--color-black);
 }
 
 .person-content{
@@ -46,14 +50,16 @@ body {
 }
 
 .person-content div h1 {
+  padding: 0px 4px;
   color: transparent;
 
-  padding: 0px 4px;
+  position: relative;
+  width: fit-content;
 
   font-size: 4.5rem;
   line-height: 6rem;
 
-  animation: written_tex .5s ease forwards;
+  animation: written_text .5s ease forwards;
 }
 
 .person-content div h1:nth-child(1){
@@ -63,11 +69,321 @@ body {
   animation-delay: 2s;
 }
 .person-content div h1:nth-child(3){
+  animation: written_text_name .5s ease forwards;
   animation-delay: 3s;
 }
 
-@keyframes written_tex {
+
+.person-content div h1 span {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 0px;
+  height: 100%;
+  background: var(--color-guava);
+
+  animation: written_text_box 1s ease;
+  animation-delay: .5s;
+}
+
+
+.person-content div h1:nth-child(1) span{
+  animation-delay: .5s;
+}
+
+.person-content div h1:nth-child(2) span{
+  animation-delay: 1.5s;
+}
+
+.person-content div h1:nth-child(3) span{
+  animation-delay: 2.5s;
+}
+
+.person-content {
+  margin-top: 11rem;
+}
+
+.stacks-content {
+  display: flex;
+  /*align-items: center; */
+  justify-content: center;
+
+  flex-direction: column;
+  margin-top: 6rem;
+}
+
+.stacks-content h3 {
+  color: var(--color-white);
+  font-size: 1.15rem;
+
+  margin-left: 20px;
+}
+
+.stacks {
+  display: flex;
+  align-items: center;
+  
+  flex-direction: row;
+}
+
+.stacks ul li {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+
+  margin: 10px;
+  padding: 10px;
+
+  list-style: none;
+}
+
+.stacks ul li img {
+  width: 30px;
+  height: auto;
+
+  transition: transform .3s ease;
+}
+
+.stacks ul li div img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.stacks ul li div:hover::after {
+  content: attr(data);
+  position: absolute;
+  top: 50px;
+  left: 10px;
+
+  width: 20px;
+  height: 20px;
+
+  color: var(--color-white);
+}
+
+.person-background {
+  height: 100vh;
+  width: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  flex-direction: column;
+
+  background-image: url(img/perfil\ front.webp);
+  background-size: cover;
+  background-position: top center;
+
+  z-index: 1;
+}
+
+.person-background::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  opacity: .7;
+  z-index: -1;
+
+  background:
+    linear-gradient(90deg, transparent 30%, var(--color-black)),
+    linear-gradient(180deg, transparent 30%, var(--color-black)),
+    linear-gradient(0deg, transparent 65%, var(--color-black));
+}
+
+.wrapper-profile-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 14px;
+  margin: 20px 15px;
+
+  border-radius: 50%;
+  background: 
+  radial-gradient(rgba(0,0,0,0.15) 60%, transparent 0),
+  radial-gradient(#000 68%, transparent 0),
+  linear-gradient(to top right, #ffa500 0%, #ff1493 100%);
+}
+
+.profile-photo {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.links a img {
+  width: 30px;
+  height: 30px;
+
+  margin: 10px;
+  filter: brightness(.8);
+  transition: all .3s ease;
+}
+
+.links a img:hover {
+  transform: scale(1.15);
+  filter: brightness(1);
+}
+
+/*Final da primeira página */
+
+#about {
+  height: 100vh;
+  width: 100%;
+  background: var(--color-black);
+
+  display: flex;
+  color: var(--color-white);
+}
+
+.background-about {
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-wrapper {
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+}
+
+.img-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  background: 
+  linear-gradient(.25turn, transparent 30%, var(--color-black)),
+  linear-gradient(.5turn, transparent 30%, var(--color-black)),
+  linear-gradient(1turn, transparent 65%, var(--color-black));
+}
+
+.img-wrapper img {
+  height: 100%;
+  width: 100%;
+
+  object-fit: cover;
+}
+
+.box-about {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 50%;
+
+  padding: 3rem;
+}
+
+.section-subtitle h2 p {
+  display: inline-block;
+  font-size: 3rem;
+
+}
+
+.section-subtitle h2 p:nth-child(2) span {
+  padding: 3px 4px;
+  border-radius: 4px;
+
+  color: var(--color-black);
+  background: var(--color-white);
+}
+
+.box-about h3 {
+  margin: 3rem;
+  font-size: 2rem;
+}
+
+.box-about h3 p {
+  display: inline-block;
+
+  width: fit-content;
+  padding: 2px 4px;
+  border-radius: 4px;
+
+  color: var(--color-black);
+  background: var(--color-pink);
+}
+
+.box-about h4 {
+  margin: 1rem 3rem;
+  font-size: 1.2rem;
+}
+
+.box-about h4 p {
+  display: inline;
+  padding: 7px 4px;
+
+  color: var(--color-blue);
+  font-size: bold;
+  font-weight: 1.75rem;
+}
+
+.button-cta {
+  display: flex;
+
+  max-height: 190px;
+  margin: 4rem 3rem;
+}
+
+.button-cta button {
+  display: inline-block;
+
+  width: 15vw;
+  max-height: 172px;
+
+  padding: 10px;
+  margin-bottom: 5rem;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  letter-spacing: .15rem;
+
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button-cta button:hover {
+  transition: all .3s ease;
+  filter: brightness(.8);
+}
+
+@keyframes written_text {
 100% {
   color: var(--color-white);
+}
+}
+
+@keyframes written_text_name {
+100% {
+  color: var(--color-ciano);
+}
+}
+
+@keyframes written_text_box {
+50% {
+  width: 100%;
+  left: 0;
+}
+100%{
+  width: 0;
+  left: 100%;
 }
 }
