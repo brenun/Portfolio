@@ -282,6 +282,8 @@ body {
   object-fit: cover;
 }
 
+/*Sobre*/
+
 .box-about {
   display: flex;
   justify-content: center;
@@ -363,6 +365,27 @@ body {
 .button-cta button:hover {
   transition: all .3s ease;
   filter: brightness(.8);
+}
+
+/*Final de Sobre*/
+
+#projects {
+  height: 100vh;
+  width: 100%;
+  background: var(--color-black);
+
+  display: flex;
+  flex-direction: column;
+
+  color: var(--color-white);
+}
+
+.projects-title h2 {
+  margin: 3rem;
+  padding: 1rem;
+
+  font-size: 3rem;
+  color: var(--color-white);
 }
 
 @keyframes written_text {
